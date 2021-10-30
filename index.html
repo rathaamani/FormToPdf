@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <title>Export PDF File using Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 align="center">Form To PDF Converter</h1>
+    <form boarder="1">
+    <input type="text" id="name" name="Name" placeholder="Name"/>
+    <input type="text" id="Email" name="Email" placeholder="Email"/>
+    <input type="number" id="PhoneNo" name="PhoneNo" placeholder="PhoneNo"/>
+     <center> <button id="button"  onclick="topdf()">Generate PDF</button></center>
+    </form>
+<script>
+    function topdf()
+    {
+        var doc = new jsPDF();
+        var name= document.getElementById('name').value;
+        var Email= document.getElementById('Email').value;
+        var PhoneNo= document.getElementById('PhoneNo').value;
+
+        doc.text(20, 20, name);
+        doc.text(20, 40, Email);
+        doc.text(20, 60, PhoneNo);
+doc.save('document.pdf');
+    }
+   
+</script>
+</body>
+</html>
